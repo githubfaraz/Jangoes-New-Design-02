@@ -1,14 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Jangoes | Artistic Logistics Excellence</title>
-    <!-- Environment Shim -->
-    <script>
-      window.process = window.process || { env: { API_KEY: "" } };
-    </script>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
@@ -62,9 +57,6 @@
         box-shadow: 0 10px 25px -5px rgba(37, 99, 235, 0.4);
       }
     </style>
-    
-    <!-- Entry Point Script: Vite handles transpilation -->
-    <script type="module" src="./index.tsx"></script>
   <script type="importmap">
 {
   "imports": {
@@ -80,5 +72,7 @@
 </head>
   <body class="text-slate-900 overflow-x-hidden">
     <div id="root"></div>
+    <!-- Vite will automatically inject the bundled script here during build -->
+    <script type="module" src="/index.tsx"></script>
   </body>
 </html>
