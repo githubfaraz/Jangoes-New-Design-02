@@ -5,6 +5,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Jangoes | Artistic Logistics Excellence</title>
+    <!-- Environment Shim -->
+    <script>
+      window.process = window.process || { env: { API_KEY: "" } };
+    </script>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
@@ -52,13 +56,16 @@
     <script type="importmap">
     {
       "imports": {
-        "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
-        "@google/genai": "https://esm.sh/@google/genai@^1.37.0",
-        "react/": "https://esm.sh/react@^19.2.3/",
-        "react": "https://esm.sh/react@^19.2.3"
+        "react": "https://esm.sh/react@19.0.0",
+        "react/": "https://esm.sh/react@19.0.0/",
+        "react-dom": "https://esm.sh/react-dom@19.0.0",
+        "react-dom/": "https://esm.sh/react-dom@19.0.0/",
+        "@google/genai": "https://esm.sh/@google/genai@1.3.0"
       }
     }
     </script>
+    <!-- Entry Point Script -->
+    <script type="module" src="./index.tsx"></script>
   </head>
   <body class="text-slate-900 overflow-x-hidden">
     <div id="root"></div>
