@@ -1,9 +1,9 @@
 
 import React, { useState } from 'react';
-import Header from './components/Header';
-import TrackingSearch from './components/TrackingSearch';
-import Calculator from './components/Calculator';
-import Chatbot from './components/Chatbot';
+import Header from './components/Header.tsx';
+import TrackingSearch from './components/TrackingSearch.tsx';
+import Calculator from './components/Calculator.tsx';
+import Chatbot from './components/Chatbot.tsx';
 
 const App: React.FC = () => {
   const [trackingId, setTrackingId] = useState<string | null>(null);
@@ -100,13 +100,18 @@ const App: React.FC = () => {
         <section className="py-24 container mx-auto px-6 relative -mt-16 z-20">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-1 p-1 bg-white shadow-2xl rounded-3xl overflow-hidden border border-slate-100">
             {[
-              { label: "Active Hubs", val: "1,200+", icon: "📍", color: "text-blue-600" },
-              { label: "Delivery Success", val: "99.98%", icon: "✅", color: "text-emerald-600" },
-              { label: "Global Reach", val: "195 Countries", icon: "🌎", color: "text-blue-500" },
-              { label: "AI Requests/s", val: "12,500", icon: "⚡", color: "text-emerald-500" }
+              { label: "Active Hubs", val: "1,200+", icon: "📍", color: "text-blue-600", delay: "0s" },
+              { label: "Delivery Success", val: "99.98%", icon: "✅", color: "text-emerald-600", delay: "0.2s" },
+              { label: "Global Reach", val: "195 Countries", icon: "🌎", color: "text-blue-500", delay: "0.4s" },
+              { label: "AI Requests/s", val: "12,500", icon: "⚡", color: "text-emerald-500", delay: "0.6s" }
             ].map((stat, i) => (
-              <div key={i} className="bg-white p-10 flex flex-col items-center justify-center text-center hover:bg-slate-50 transition-colors">
-                <span className="text-3xl mb-4">{stat.icon}</span>
+              <div key={i} className="bg-white p-10 flex flex-col items-center justify-center text-center hover:bg-slate-50 transition-colors group">
+                <span 
+                  className="text-3xl mb-4 animate-float block" 
+                  style={{ animationDelay: stat.delay }}
+                >
+                  {stat.icon}
+                </span>
                 <span className={`text-4xl font-black ${stat.color} mb-2 tracking-tighter`}>{stat.val}</span>
                 <span className="text-slate-400 font-bold uppercase text-[10px] tracking-widest">{stat.label}</span>
               </div>

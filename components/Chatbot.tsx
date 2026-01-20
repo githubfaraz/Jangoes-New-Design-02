@@ -1,7 +1,7 @@
 
 import React, { useState, useRef, useEffect } from 'react';
-import { getLogisticsAdvice } from '../services/geminiService';
-import { ChatMessage } from '../types';
+import { getLogisticsAdvice } from '../services/geminiService.ts';
+import { ChatMessage } from '../types.ts';
 
 const Chatbot: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
