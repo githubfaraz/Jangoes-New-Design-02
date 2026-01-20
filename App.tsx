@@ -101,13 +101,13 @@ const App: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-1 p-1 bg-white shadow-2xl rounded-3xl overflow-hidden border border-slate-100">
             {[
               { label: "Active Hubs", val: "1,200+", icon: "📍", color: "text-blue-600", delay: "0s" },
-              { label: "Delivery Success", val: "99.98%", icon: "✅", color: "text-emerald-600", delay: "0.2s" },
-              { label: "Global Reach", val: "195 Countries", icon: "🌎", color: "text-blue-500", delay: "0.4s" },
-              { label: "AI Requests/s", val: "12,500", icon: "⚡", color: "text-emerald-500", delay: "0.6s" }
+              { label: "Delivery Success", val: "99.98%", icon: "✅", color: "text-emerald-600", delay: "0.5s" },
+              { label: "Global Reach", val: "195 Countries", icon: "🌎", color: "text-blue-500", delay: "1s" },
+              { label: "AI Requests/s", val: "12,500", icon: "⚡", color: "text-emerald-500", delay: "1.5s" }
             ].map((stat, i) => (
               <div key={i} className="bg-white p-10 flex flex-col items-center justify-center text-center hover:bg-slate-50 transition-colors group">
                 <span 
-                  className="text-3xl mb-4 animate-float block" 
+                  className="text-4xl mb-6 animate-float" 
                   style={{ animationDelay: stat.delay }}
                 >
                   {stat.icon}

@@ -2,15 +2,17 @@
 import React, { useState } from 'react';
 
 const Calculator: React.FC = () => {
-  const [weight, setWeight] = useState(50);
+  // weight is now in grams. Default: 2500g (2.5kg)
+  const [weight, setWeight] = useState(2500);
   const [distance, setDistance] = useState(500);
   const [estimatedCost, setEstimatedCost] = useState<number | null>(null);
 
   const calculateCost = () => {
     const baseFare = 25;
-    const ratePerKg = 4.75;
+    const ratePerKg = 4.75; // Still based on KG for easier math
     const ratePerKm = 0.55;
-    const total = baseFare + (weight * ratePerKg) + (distance * ratePerKm);
+    // Convert grams to kg for the rate calculation
+    const total = baseFare + ((weight / 1000) * ratePerKg) + (distance * ratePerKm);
     setEstimatedCost(total);
   };
 
@@ -26,12 +28,13 @@ const Calculator: React.FC = () => {
           <div>
             <div className="flex justify-between items-center mb-6">
               <label className="text-[10px] font-black text-blue-900/40 uppercase tracking-[0.3em]">Load Weight</label>
-              <span className="text-blue-600 font-black text-2xl">{weight} <span className="text-xs font-bold uppercase tracking-widest text-slate-400">kg</span></span>
+              <span className="text-blue-600 font-black text-2xl">{weight.toLocaleString()} <span className="text-xs font-bold uppercase tracking-widest text-slate-400">grams</span></span>
             </div>
             <input
               type="range"
-              min="1"
-              max="5000"
+              min="100"
+              max="100000"
+              step="100"
               value={weight}
               onChange={(e) => setWeight(Number(e.target.value))}
               className="w-full h-1.5 bg-slate-100 rounded-lg appearance-none cursor-pointer accent-blue-600"
